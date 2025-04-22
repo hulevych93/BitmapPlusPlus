@@ -45,13 +45,13 @@ namespace bmp {
     std::uint8_t g; /* Green value */
     std::uint8_t b; /* Red value */
 
-    constexpr Pixel() noexcept : r(0), g(0), b(0) {
+    Pixel() noexcept : r(0), g(0), b(0) {
     }
 
-    explicit constexpr Pixel(const std::int32_t rgb) noexcept : r((rgb >> 16) & 0xff), g((rgb >> 8) & 0xff), b((rgb >> 0x0) & 0xff) {
+    constexpr Pixel(const std::int32_t rgb) noexcept : r((rgb >> 16) & 0xff), g((rgb >> 8) & 0xff), b((rgb >> 0x0) & 0xff) {
     }
 
-    constexpr Pixel(const std::uint8_t red, const std::uint8_t green, const std::uint8_t blue) noexcept : r(red), g(green), b(blue) {
+    Pixel(const std::uint8_t red, const std::uint8_t green, const std::uint8_t blue) noexcept : r(red), g(green), b(blue) {
     }
 
     constexpr bool operator==(const Pixel &other) const noexcept {
@@ -66,40 +66,40 @@ namespace bmp {
   static_assert(sizeof(Pixel) == 3, "Bitmap Pixel size must be 3 bytes");
 #pragma pack(pop)
 
-  static constexpr Pixel Aqua{0, 255, 255};
-  static constexpr Pixel Beige{245, 245, 220};
-  static constexpr Pixel Black{0, 0, 0};
-  static constexpr Pixel Blue{0, 0, 255};
-  static constexpr Pixel Brown{165, 42, 42};
-  static constexpr Pixel Chocolate{210, 105, 30};
-  static constexpr Pixel Coral{255, 127, 80};
-  static constexpr Pixel Crimson{220, 20, 60};
-  static constexpr Pixel Cyan{0, 255, 255};
-  static constexpr Pixel Firebrick{178, 34, 34};
-  static constexpr Pixel Gold{255, 215, 0};
-  static constexpr Pixel Gray{128, 128, 128};
-  static constexpr Pixel Green{0, 255, 0};
-  static constexpr Pixel Indigo{75, 0, 130};
-  static constexpr Pixel Lavender{230, 230, 250};
-  static constexpr Pixel Lime{0, 255, 0};
-  static constexpr Pixel Magenta{255, 0, 255};
-  static constexpr Pixel Maroon{128, 0, 0};
-  static constexpr Pixel Navy{0, 0, 128};
-  static constexpr Pixel Olive{128, 128, 0};
-  static constexpr Pixel Orange{255, 165, 0};
-  static constexpr Pixel Pink{255, 192, 203};
-  static constexpr Pixel Purple{128, 0, 128};
-  static constexpr Pixel Red{255, 0, 0};
-  static constexpr Pixel Salmon{250, 128, 114};
-  static constexpr Pixel Silver{192, 192, 192};
-  static constexpr Pixel Snow{255, 250, 250};
-  static constexpr Pixel Teal{0, 128, 128};
-  static constexpr Pixel Tomato{255, 99, 71};
-  static constexpr Pixel Turquoise{64, 224, 208};
-  static constexpr Pixel Violet{238, 130, 238};
-  static constexpr Pixel White{255, 255, 255};
-  static constexpr Pixel Wheat{245, 222, 179};
-  static constexpr Pixel Yellow{255, 255, 0};
+  static  Pixel Aqua = {0, 255, 255};
+  static  Pixel Beige = {245, 245, 220};
+  static  Pixel Black = {0, 0, 0};
+  static  Pixel Blue = {0, 0, 255};
+  static  Pixel Brown = {165, 42, 42};
+  static  Pixel Chocolate = {210, 105, 30};
+  static  Pixel Coral = {255, 127, 80};
+  static  Pixel Crimson = {220, 20, 60};
+  static  Pixel Cyan = {0, 255, 255};
+  static  Pixel Firebrick = {178, 34, 34};
+  static  Pixel Gold = {255, 215, 0};
+  static  Pixel Gray = {128, 128, 128};
+  static  Pixel Green = {0, 255, 0};
+  static  Pixel Indigo = {75, 0, 130};
+  static  Pixel Lavender = {230, 230, 250};
+  static  Pixel Lime = {0, 255, 0};
+  static  Pixel Magenta = {255, 0, 255};
+  static  Pixel Maroon = {128, 0, 0};
+  static  Pixel Navy = {0, 0, 128};
+  static  Pixel Olive = {128, 128, 0};
+  static  Pixel Orange = {255, 165, 0};
+  static  Pixel Pink = {255, 192, 203};
+  static  Pixel Purple = {128, 0, 128};
+  static  Pixel Red = {255, 0, 0};
+  static  Pixel Salmon = {250, 128, 114};
+  static  Pixel Silver = {192, 192, 192};
+  static  Pixel Snow = {255, 250, 250};
+  static  Pixel Teal = {0, 128, 128};
+  static  Pixel Tomato = {255, 99, 71};
+  static  Pixel Turquoise = {64, 224, 208};
+  static  Pixel Violet = {238, 130, 238};
+  static  Pixel White = {255, 255, 255};
+  static  Pixel Wheat = {245, 222, 179};
+  static  Pixel Yellow = {255, 255, 0};
 
   class Exception : public std::runtime_error {
   public:
