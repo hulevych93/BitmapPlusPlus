@@ -103,7 +103,7 @@ namespace bmp {
     Bitmap() noexcept : m_pixels(), m_width(0), m_height(0) {
     }
 
-    explicit Bitmap(const std::string &filename) : m_pixels(), m_width(0), m_height(0) {
+    explicit Bitmap(const char* filename) : m_pixels(), m_width(0), m_height(0) {
       this->load(filename);
     }
 
@@ -504,7 +504,8 @@ namespace bmp {
      *	Saves Bitmap pixels into a file
      *   @throws bmp::Exception on error
      */
-    void save(const std::filesystem::path &filename) const {
+    void save(const char* path) const {
+      std::filesystem::path filename{path};
       // Calculate row and bitmap size
       const std::int32_t row_size = m_width * 3 + m_width % 4;
       const std::uint32_t bitmap_size = row_size * m_height;
@@ -561,7 +562,9 @@ namespace bmp {
      *	Loads Bitmap from file
      *   @throws bmp::Exception on error
      */
-    void load(const std::filesystem::path &filename) {
+    void load(const char* path) {
+      std::filesystem::path filename{path};
+
       m_pixels.clear();
 
       if (std::ifstream ifs{filename, std::ios::binary}; ifs.good()) {

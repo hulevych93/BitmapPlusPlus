@@ -26,7 +26,9 @@ int main() {
     }
 
     // Save bitmap to new file image.bmp
-    image.save(std::filesystem::path(BIN_DIR) / "image.bmp");
+    auto p1 = std::filesystem::path(BIN_DIR) / "image.bmp";
+    const auto s1 = p1.string();
+    image.save(s1.c_str());
 
     // And Voila!
     return EXIT_SUCCESS;

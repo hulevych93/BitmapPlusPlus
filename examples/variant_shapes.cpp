@@ -88,7 +88,10 @@ int main() {
     for (Shape& shape: shapes) {
       std::visit(drawer, shape); // visit will call the appropriate ShapeDrawer::operator() for each shape
     }
-    image.save(std::filesystem::path(BIN_DIR) / "variant_shapes.bmp");
+
+    auto p1 = std::filesystem::path(BIN_DIR) / "variant_shapes.bmp";
+    const auto s1 = p1.string();
+    image.save(s1.c_str());
 
     return EXIT_SUCCESS;
   } catch (const bmp::Exception& e) {

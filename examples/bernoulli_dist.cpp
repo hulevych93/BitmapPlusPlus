@@ -18,7 +18,9 @@ int main() {
       image[i] = color;
     }
 
-    image.save(std::filesystem::path(BIN_DIR) / "bernoulli.bmp");
+    const auto p1 = std::filesystem::path(BIN_DIR) / "bernoulli.bmp";
+    const auto s1 = p1.string();
+    image.save(s1.c_str());
 
     return EXIT_SUCCESS;
   } catch (const bmp::Exception& e) {

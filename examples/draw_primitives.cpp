@@ -29,7 +29,9 @@ int main() {
   image.fill_circle(420, 170, 50, Lime);
 
   // Save bitmap
-  image.save(std::filesystem::path(BIN_DIR) / "primitives.bmp");
+  auto p1 = std::filesystem::path(BIN_DIR) / "primitives.bmp";
+  const auto s1 = p1.string();
+  image.save(s1.c_str());
 
   return EXIT_SUCCESS;
 }
