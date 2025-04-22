@@ -12,9 +12,10 @@ int main() {
     std::default_random_engine eng{seed()};
     std::bernoulli_distribution dist(0.10); // 10% White, 90% Black
 
-    for (bmp::Pixel& pixel: image) {
+    const auto size = image.size();
+    for (int i = 0; i < size; ++i) {
       const bmp::Pixel color = dist(eng) ? bmp::White : bmp::Black;
-      pixel = color;
+      image[i] = color;
     }
 
     image.save(std::filesystem::path(BIN_DIR) / "bernoulli.bmp");

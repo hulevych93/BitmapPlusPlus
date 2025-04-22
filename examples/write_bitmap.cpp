@@ -20,8 +20,9 @@ int main() {
     bmp::Bitmap image(512, 512);
 
     // Assign a random color to each pixel in the image
-    for (bmp::Pixel &pixel: image) {
-      pixel = random_color();
+    const auto size = image.size();
+    for (int i = 0; i < size; ++i) {
+      image[i] = random_color();
     }
 
     // Save bitmap to new file image.bmp

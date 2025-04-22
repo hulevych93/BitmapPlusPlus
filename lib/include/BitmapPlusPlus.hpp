@@ -398,6 +398,8 @@ namespace bmp {
 
     bool operator!=(const Bitmap &image) const { return !(*this == image); }
 
+    std::uint32_t size() const { return m_pixels.size(); }
+
     Bitmap &operator=(const Bitmap &image) // Copy assignment operator
     {
       if (this != std::addressof(image)) {
@@ -416,23 +418,6 @@ namespace bmp {
       }
       return *this;
     }
-
-  public: /** foreach iterators access */
-    [[nodiscard]] std::vector<Pixel>::iterator begin() noexcept { return m_pixels.begin(); }
-
-    [[nodiscard]] std::vector<Pixel>::iterator end() noexcept { return m_pixels.end(); }
-
-    [[nodiscard]] std::vector<Pixel>::const_iterator cbegin() const noexcept { return m_pixels.cbegin(); }
-
-    [[nodiscard]] std::vector<Pixel>::const_iterator cend() const noexcept { return m_pixels.cend(); }
-
-    [[nodiscard]] std::vector<Pixel>::reverse_iterator rbegin() noexcept { return m_pixels.rbegin(); }
-
-    [[nodiscard]] std::vector<Pixel>::reverse_iterator rend() noexcept { return m_pixels.rend(); }
-
-    [[nodiscard]] std::vector<Pixel>::const_reverse_iterator crbegin() const noexcept { return m_pixels.crbegin(); }
-
-    [[nodiscard]] std::vector<Pixel>::const_reverse_iterator crend() const noexcept { return m_pixels.crend(); }
 
   public: /* Modifiers */
     /**
