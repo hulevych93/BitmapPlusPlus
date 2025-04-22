@@ -41,9 +41,9 @@ namespace bmp {
   static_assert(sizeof(BitmapHeader) == 54, "Bitmap header size must be 54 bytes");
 
   struct Pixel {
-    std::uint8_t r; /* Blue value */
-    std::uint8_t g; /* Green value */
-    std::uint8_t b; /* Red value */
+    unsigned char r; /* Blue value */
+    unsigned char g; /* Green value */
+    unsigned char b; /* Red value */
   };
 
   inline Pixel makePixel(const std::int32_t rgb) {
