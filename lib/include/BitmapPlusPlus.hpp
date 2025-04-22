@@ -44,24 +44,15 @@ namespace bmp {
     std::uint8_t r; /* Blue value */
     std::uint8_t g; /* Green value */
     std::uint8_t b; /* Red value */
-
-    Pixel() noexcept : r(0), g(0), b(0) {
-    }
-
-    constexpr Pixel(const std::int32_t rgb) noexcept : r((rgb >> 16) & 0xff), g((rgb >> 8) & 0xff), b((rgb >> 0x0) & 0xff) {
-    }
-
-    Pixel(const std::uint8_t red, const std::uint8_t green, const std::uint8_t blue) noexcept : r(red), g(green), b(blue) {
-    }
-
-    constexpr bool operator==(const Pixel &other) const noexcept {
-      if (this == std::addressof(other))
-        return true;
-      return r == other.r && g == other.g && b == other.b;
-    }
-
-    constexpr bool operator!=(const Pixel &other) const noexcept { return !((*this) == other); }
   };
+
+  inline Pixel makePixel(const std::int32_t rgb) {
+    Pixel p;
+    p.r = ((rgb >> 16) & 0xff);
+    p.g = ((rgb >> 8) & 0xff);
+    p.b = ((rgb >> 0x0) & 0xff);
+    return p;
+  }
 
   static_assert(sizeof(Pixel) == 3, "Bitmap Pixel size must be 3 bytes");
 #pragma pack(pop)

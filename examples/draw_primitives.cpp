@@ -6,7 +6,7 @@ using namespace bmp;
 int main() {
   // Create a 512x240 blank image
   Bitmap image(512, 240);
-  image.clear(Pixel(0x25292e));
+  image.clear(makePixel(0x25292e));
 
   /** Line **/
   // Draw a yellow line from position (250, 50) to position (500, 50)

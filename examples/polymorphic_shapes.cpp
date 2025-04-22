@@ -54,9 +54,9 @@ int main() {
     image.clear(background_color);
 
     std::vector<Shape*> shapes{
-      new Rectangle(20, 20, 180, 180, bmp::Pixel(0xa31d3a)),
-      new Triangle(310, 20, 230, 200, 400, 200, bmp::Pixel(0x1a5096)),
-      new Circle(500, 110, 90, bmp::Pixel(0x228035))};
+      new Rectangle(20, 20, 180, 180, bmp::makePixel(0xa31d3a)),
+      new Triangle(310, 20, 230, 200, 400, 200, bmp::makePixel(0x1a5096)),
+      new Circle(500, 110, 90, bmp::makePixel(0x228035))};
 
     for (Shape* shape: shapes) {
       shape->draw(image);
