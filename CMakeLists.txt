@@ -16,7 +16,8 @@ option(BPP_BUILD_EXAMPLES "Requires BPP to build all examples inside examples/ f
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/lib")
+include_directories(${CMAKE_SOURCE_DIR})
+add_subdirectory(src)
 
 if (BPP_BUILD_EXAMPLES)
     enable_testing()
